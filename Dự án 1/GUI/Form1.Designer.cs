@@ -33,8 +33,8 @@
             pictureBox3 = new PictureBox();
             pictureBox2 = new PictureBox();
             checkBox1 = new CheckBox();
-            textBox2 = new TextBox();
-            textBox1 = new TextBox();
+            txt_matKhau = new TextBox();
+            txt_takKhoan = new TextBox();
             btn_Login = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel1.SuspendLayout();
@@ -59,8 +59,8 @@
             panel1.Controls.Add(pictureBox3);
             panel1.Controls.Add(pictureBox2);
             panel1.Controls.Add(checkBox1);
-            panel1.Controls.Add(textBox2);
-            panel1.Controls.Add(textBox1);
+            panel1.Controls.Add(txt_matKhau);
+            panel1.Controls.Add(txt_takKhoan);
             panel1.Location = new Point(10, 171);
             panel1.Margin = new Padding(2);
             panel1.Name = "panel1";
@@ -98,26 +98,26 @@
             checkBox1.Text = "Hiện mật khẩu";
             checkBox1.UseVisualStyleBackColor = true;
             // 
-            // textBox2
+            // txt_matKhau
             // 
-            textBox2.Location = new Point(87, 112);
-            textBox2.Margin = new Padding(2);
-            textBox2.Name = "textBox2";
-            textBox2.PlaceholderText = "**********";
-            textBox2.Size = new Size(251, 27);
-            textBox2.TabIndex = 3;
-            textBox2.UseSystemPasswordChar = true;
+            txt_matKhau.Location = new Point(87, 112);
+            txt_matKhau.Margin = new Padding(2);
+            txt_matKhau.Name = "txt_matKhau";
+            txt_matKhau.PlaceholderText = "**********";
+            txt_matKhau.Size = new Size(251, 27);
+            txt_matKhau.TabIndex = 3;
+            txt_matKhau.UseSystemPasswordChar = true;
             // 
-            // textBox1
+            // txt_takKhoan
             // 
-            textBox1.ImeMode = ImeMode.On;
-            textBox1.Location = new Point(87, 23);
-            textBox1.Margin = new Padding(2);
-            textBox1.Name = "textBox1";
-            textBox1.PlaceholderText = "Nhập Tài Khoản";
-            textBox1.Size = new Size(251, 27);
-            textBox1.TabIndex = 2;
-            textBox1.WordWrap = false;
+            txt_takKhoan.ImeMode = ImeMode.On;
+            txt_takKhoan.Location = new Point(87, 23);
+            txt_takKhoan.Margin = new Padding(2);
+            txt_takKhoan.Name = "txt_takKhoan";
+            txt_takKhoan.PlaceholderText = "Nhập Tài Khoản";
+            txt_takKhoan.Size = new Size(251, 27);
+            txt_takKhoan.TabIndex = 2;
+            txt_takKhoan.WordWrap = false;
             // 
             // btn_Login
             // 
@@ -136,7 +136,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             AutoScrollMargin = new Size(100, 110);
             BackColor = SystemColors.ButtonHighlight;
-            ClientSize = new Size(404, 502);
+            ClientSize = new Size(404, 478);
             Controls.Add(btn_Login);
             Controls.Add(panel1);
             Controls.Add(pictureBox1);
@@ -160,8 +160,8 @@
         private PictureBox pictureBox1;
         private Panel panel1;
         private CheckBox checkBox1;
-        private TextBox textBox2;
-        private TextBox textBox1;
+        private TextBox txt_matKhau;
+        private TextBox txt_takKhoan;
         private PictureBox pictureBox3;
         private PictureBox pictureBox2;
         private Button btn_Login;

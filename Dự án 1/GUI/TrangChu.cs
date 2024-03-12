@@ -17,6 +17,7 @@ namespace Dự_án_1.VIEWS
             InitializeComponent();
         }
         private Form currentFromChild;
+
         private void Open(Form child)
         {
             if (currentFromChild != null)
@@ -28,10 +29,17 @@ namespace Dự_án_1.VIEWS
             child.FormBorderStyle = FormBorderStyle.None;
             child.Dock = DockStyle.Fill;
             Pa_Body.Controls.Add(child);
+
+            int x = Pa_Body.Location.X + (Pa_Body.Width - child.Width) / 2;
+            int y = Pa_Body.Location.Y + (Pa_Body.Height - child.Height) / 2;
+
+            child.Location = new Point(x, y);
+
             Pa_Body.Tag = child;
             child.BringToFront();
             child.Show();
         }
+
 
         private void button1_Click(object sender, EventArgs e)
         {

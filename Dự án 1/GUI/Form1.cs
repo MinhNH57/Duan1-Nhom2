@@ -1,3 +1,4 @@
+using Dự_án_1.BLL;
 using Dự_án_1.VIEWS;
 using System.Drawing.Drawing2D;
 
@@ -5,6 +6,8 @@ namespace Dự_án_1
 {
     public partial class Form1 : Form
     {
+        NhanVienSer nv = new();
+        TaiKhoanSer tkl = new();
         public Form1()
         {
             InitializeComponent();
@@ -25,22 +28,38 @@ namespace Dự_án_1
             formPath.CloseFigure();
             this.Region = new Region(formPath);*/
         }
-        private void Form1_Load(object sender, EventArgs e)
+
+        private bool checkUser(string tk , string mk)
         {
-
+            if(tkl.findTaiKhoanSer(tk, mk) != null)
+            {
+                MessageBox.Show("Đăng nhập thành công", "Thông báo");
+                return true;
+            }
+            else
+            {
+                MessageBox.Show("Không tìm thấy tài khoản", "Thông báo");
+                return false;
+            }
         }
-
-        private void label3_Click(object sender, EventArgs e)
+        private void Form1_Load(object sender, EventArgs e)
         {
 
         }
 
         private void btn_Login_Click(object sender, EventArgs e)
         {
-            TrangChu trangChu = new TrangChu();
-            this.Hide();
-            trangChu.ShowDialog();
-            this.Show();
+            if(checkUser(txt_takKhoan.Text, txt_matKhau.Text))
+            {
+                TrangChu trangChu = new TrangChu();
+                this.Hide();
+                trangChu.ShowDialog();
+                this.Show();
+            }
+            else
+            {
+                
+            }
         }
     }
 }

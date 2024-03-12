@@ -35,14 +35,14 @@
             label1 = new Label();
             txt_tenSP = new TextBox();
             txt_maSP = new TextBox();
-            dataGridView1 = new DataGridView();
+            dgv_dataSP = new DataGridView();
             groupBox1 = new GroupBox();
             cb_chatLieuSP = new ComboBox();
             btn_them = new Button();
             btn_sua = new Button();
             btn_voHieu = new Button();
             txt_timKiem = new TextBox();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgv_dataSP).BeginInit();
             groupBox1.SuspendLayout();
             SuspendLayout();
             // 
@@ -60,6 +60,7 @@
             // cb_loaiSP
             // 
             cb_loaiSP.FormattingEnabled = true;
+            cb_loaiSP.Items.AddRange(new object[] { "Quần Jeans", "Áo Bommber", "Áo polo" });
             cb_loaiSP.Location = new Point(469, 37);
             cb_loaiSP.Name = "cb_loaiSP";
             cb_loaiSP.Size = new Size(151, 28);
@@ -114,16 +115,16 @@
             txt_maSP.Size = new Size(72, 27);
             txt_maSP.TabIndex = 0;
             // 
-            // dataGridView1
+            // dgv_dataSP
             // 
-            dataGridView1.Anchor = AnchorStyles.Top;
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(11, 237);
-            dataGridView1.Margin = new Padding(2);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowHeadersWidth = 62;
-            dataGridView1.Size = new Size(782, 241);
-            dataGridView1.TabIndex = 0;
+            dgv_dataSP.Anchor = AnchorStyles.Top;
+            dgv_dataSP.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgv_dataSP.Location = new Point(11, 237);
+            dgv_dataSP.Margin = new Padding(2);
+            dgv_dataSP.Name = "dgv_dataSP";
+            dgv_dataSP.RowHeadersWidth = 62;
+            dgv_dataSP.Size = new Size(782, 241);
+            dgv_dataSP.TabIndex = 0;
             // 
             // groupBox1
             // 
@@ -147,6 +148,7 @@
             // cb_chatLieuSP
             // 
             cb_chatLieuSP.FormattingEnabled = true;
+            cb_chatLieuSP.Items.AddRange(new object[] { "Canvas", "Cotton'", "Polyme", "Sợi tổng hợp" });
             cb_chatLieuSP.Location = new Point(344, 118);
             cb_chatLieuSP.Name = "cb_chatLieuSP";
             cb_chatLieuSP.Size = new Size(276, 28);
@@ -161,6 +163,7 @@
             btn_them.TabIndex = 10;
             btn_them.Text = "Thêm";
             btn_them.UseVisualStyleBackColor = true;
+            btn_them.Click += btn_them_Click;
             // 
             // btn_sua
             // 
@@ -171,6 +174,7 @@
             btn_sua.TabIndex = 10;
             btn_sua.Text = "Sửa ";
             btn_sua.UseVisualStyleBackColor = true;
+            btn_sua.Click += btn_sua_Click;
             // 
             // btn_voHieu
             // 
@@ -201,11 +205,12 @@
             Controls.Add(txt_timKiem);
             Controls.Add(btn_them);
             Controls.Add(groupBox1);
-            Controls.Add(dataGridView1);
+            Controls.Add(dgv_dataSP);
             Margin = new Padding(2);
             Name = "SanPham";
             Text = "SanPham";
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            Load += SanPham_Load;
+            ((System.ComponentModel.ISupportInitialize)dgv_dataSP).EndInit();
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             ResumeLayout(false);
@@ -215,7 +220,7 @@
         #endregion
         private TextBox txt_tenSP;
         private TextBox txt_maSP;
-        private DataGridView dataGridView1;
+        private DataGridView dgv_dataSP;
         private Label label4;
         private Label label3;
         private Label label2;

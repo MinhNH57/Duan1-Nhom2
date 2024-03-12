@@ -102,6 +102,7 @@
             checkBox1.TabIndex = 4;
             checkBox1.Text = "Hiện mật khẩu";
             checkBox1.UseVisualStyleBackColor = true;
+            checkBox1.CheckedChanged += checkBox1_CheckedChanged;
             // 
             // txt_matKhau
             // 

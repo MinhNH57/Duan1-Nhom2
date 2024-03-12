@@ -29,9 +29,22 @@ namespace Dự_án_1
             this.Region = new Region(formPath);*/
         }
 
-        private bool checkUser(string tk , string mk)
+        private bool checkUser(string tk, string mk)
         {
-            return true;
+            var q = (from i in nv.getAllnhanvienSer()
+                     where i.Taikhoan == tk && i.Matkhau == mk
+                     select i).FirstOrDefault();
+            if (q != null)
+            {
+                loaiTK = q.Quyen;
+                MessageBox.Show("Dang nhap thanh cong voi tu cach " + loaiTK, "Thong bao");
+                return true;
+            }
+            else
+            {
+                MessageBox.Show("Dang nhap thai bai", "Thong bao");
+                return false;
+            }
         }
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -40,10 +53,22 @@ namespace Dự_án_1
 
         private void btn_Login_Click(object sender, EventArgs e)
         {
-            TrangChu trangChu = new TrangChu();
-            this.Hide();
-            trangChu.ShowDialog();
-            this.Show();
+            if (checkUser(txt_takKhoan.Text, txt_matKhau.Text))
+            {
+                TrangChu trangChu = new TrangChu();
+                this.Hide();
+                trangChu.ShowDialog();
+                this.Show();
+            }
         }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            if(checkBox1.Checked)
+            {
+                txt_matKhau.UseSystemPasswordChar = false;
+            }
+        }
+
     }
 }

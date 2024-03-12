@@ -37,10 +37,10 @@
             txt_maSP = new TextBox();
             dataGridView1 = new DataGridView();
             groupBox1 = new GroupBox();
+            cb_chatLieuSP = new ComboBox();
             btn_them = new Button();
             btn_sua = new Button();
             btn_voHieu = new Button();
-            cb_chatLieuSP = new ComboBox();
             txt_timKiem = new TextBox();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             groupBox1.SuspendLayout();
@@ -116,16 +116,18 @@
             // 
             // dataGridView1
             // 
+            dataGridView1.Anchor = AnchorStyles.Top;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Location = new Point(11, 237);
             dataGridView1.Margin = new Padding(2);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersWidth = 62;
-            dataGridView1.Size = new Size(789, 241);
+            dataGridView1.Size = new Size(782, 241);
             dataGridView1.TabIndex = 0;
             // 
             // groupBox1
             // 
+            groupBox1.Anchor = AnchorStyles.Top;
             groupBox1.Controls.Add(cb_chatLieuSP);
             groupBox1.Controls.Add(label4);
             groupBox1.Controls.Add(txt_tenSP);
@@ -137,37 +139,10 @@
             groupBox1.ForeColor = Color.Red;
             groupBox1.Location = new Point(12, 12);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(788, 189);
+            groupBox1.Size = new Size(778, 189);
             groupBox1.TabIndex = 9;
             groupBox1.TabStop = false;
             groupBox1.Text = "Thông tin sản phẩm";
-            // 
-            // btn_them
-            // 
-            btn_them.Location = new Point(186, 483);
-            btn_them.Name = "btn_them";
-            btn_them.Size = new Size(94, 29);
-            btn_them.TabIndex = 10;
-            btn_them.Text = "Thêm";
-            btn_them.UseVisualStyleBackColor = true;
-            // 
-            // btn_sua
-            // 
-            btn_sua.Location = new Point(336, 483);
-            btn_sua.Name = "btn_sua";
-            btn_sua.Size = new Size(94, 29);
-            btn_sua.TabIndex = 10;
-            btn_sua.Text = "Sửa ";
-            btn_sua.UseVisualStyleBackColor = true;
-            // 
-            // btn_voHieu
-            // 
-            btn_voHieu.Location = new Point(491, 483);
-            btn_voHieu.Name = "btn_voHieu";
-            btn_voHieu.Size = new Size(94, 29);
-            btn_voHieu.TabIndex = 10;
-            btn_voHieu.Text = "Vô hiệu ";
-            btn_voHieu.UseVisualStyleBackColor = true;
             // 
             // cb_chatLieuSP
             // 
@@ -177,8 +152,39 @@
             cb_chatLieuSP.Size = new Size(276, 28);
             cb_chatLieuSP.TabIndex = 9;
             // 
+            // btn_them
+            // 
+            btn_them.Anchor = AnchorStyles.Top;
+            btn_them.Location = new Point(186, 483);
+            btn_them.Name = "btn_them";
+            btn_them.Size = new Size(87, 29);
+            btn_them.TabIndex = 10;
+            btn_them.Text = "Thêm";
+            btn_them.UseVisualStyleBackColor = true;
+            // 
+            // btn_sua
+            // 
+            btn_sua.Anchor = AnchorStyles.Top;
+            btn_sua.Location = new Point(336, 483);
+            btn_sua.Name = "btn_sua";
+            btn_sua.Size = new Size(87, 29);
+            btn_sua.TabIndex = 10;
+            btn_sua.Text = "Sửa ";
+            btn_sua.UseVisualStyleBackColor = true;
+            // 
+            // btn_voHieu
+            // 
+            btn_voHieu.Anchor = AnchorStyles.Top;
+            btn_voHieu.Location = new Point(491, 483);
+            btn_voHieu.Name = "btn_voHieu";
+            btn_voHieu.Size = new Size(87, 29);
+            btn_voHieu.TabIndex = 10;
+            btn_voHieu.Text = "Vô hiệu ";
+            btn_voHieu.UseVisualStyleBackColor = true;
+            // 
             // txt_timKiem
             // 
+            txt_timKiem.Anchor = AnchorStyles.Top;
             txt_timKiem.Location = new Point(254, 206);
             txt_timKiem.Margin = new Padding(2);
             txt_timKiem.Name = "txt_timKiem";
@@ -189,7 +195,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(818, 524);
+            ClientSize = new Size(808, 524);
             Controls.Add(btn_voHieu);
             Controls.Add(btn_sua);
             Controls.Add(txt_timKiem);

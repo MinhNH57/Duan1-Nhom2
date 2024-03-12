@@ -44,6 +44,7 @@
             // 
             // pictureBox1
             // 
+            pictureBox1.Anchor = AnchorStyles.Top;
             pictureBox1.ErrorImage = Properties.Resources.R;
             pictureBox1.Image = Properties.Resources.R;
             pictureBox1.Location = new Point(-4, 0);
@@ -56,6 +57,7 @@
             // 
             // panel1
             // 
+            panel1.Anchor = AnchorStyles.Top;
             panel1.Controls.Add(pictureBox3);
             panel1.Controls.Add(pictureBox2);
             panel1.Controls.Add(checkBox1);
@@ -69,6 +71,7 @@
             // 
             // pictureBox3
             // 
+            pictureBox3.Anchor = AnchorStyles.Top;
             pictureBox3.Image = Properties.Resources._5582931;
             pictureBox3.Location = new Point(13, 93);
             pictureBox3.Name = "pictureBox3";
@@ -79,6 +82,7 @@
             // 
             // pictureBox2
             // 
+            pictureBox2.Anchor = AnchorStyles.Top;
             pictureBox2.Image = Properties.Resources.user_icon_2048x2048_ihoxz4vq;
             pictureBox2.Location = new Point(13, 3);
             pictureBox2.Name = "pictureBox2";
@@ -89,6 +93,7 @@
             // 
             // checkBox1
             // 
+            checkBox1.Anchor = AnchorStyles.Top;
             checkBox1.AutoSize = true;
             checkBox1.Location = new Point(120, 167);
             checkBox1.Margin = new Padding(2);
@@ -100,6 +105,7 @@
             // 
             // txt_matKhau
             // 
+            txt_matKhau.Anchor = AnchorStyles.Top;
             txt_matKhau.Location = new Point(87, 112);
             txt_matKhau.Margin = new Padding(2);
             txt_matKhau.Name = "txt_matKhau";
@@ -110,6 +116,7 @@
             // 
             // txt_takKhoan
             // 
+            txt_takKhoan.Anchor = AnchorStyles.Top;
             txt_takKhoan.ImeMode = ImeMode.On;
             txt_takKhoan.Location = new Point(87, 23);
             txt_takKhoan.Margin = new Padding(2);
@@ -121,6 +128,7 @@
             // 
             // btn_Login
             // 
+            btn_Login.Anchor = AnchorStyles.Top;
             btn_Login.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btn_Login.Location = new Point(130, 412);
             btn_Login.Name = "btn_Login";

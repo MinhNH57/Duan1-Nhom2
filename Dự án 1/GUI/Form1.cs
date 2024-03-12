@@ -6,8 +6,8 @@ namespace Dự_án_1
 {
     public partial class Form1 : Form
     {
+        static string loaiTK;
         NhanVienSer nv = new();
-        TaiKhoanSer tkl = new();
         public Form1()
         {
             InitializeComponent();
@@ -31,16 +31,7 @@ namespace Dự_án_1
 
         private bool checkUser(string tk , string mk)
         {
-            if(tkl.findTaiKhoanSer(tk, mk) != null)
-            {
-                MessageBox.Show("Đăng nhập thành công", "Thông báo");
-                return true;
-            }
-            else
-            {
-                MessageBox.Show("Không tìm thấy tài khoản", "Thông báo");
-                return false;
-            }
+            return true;
         }
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -49,17 +40,10 @@ namespace Dự_án_1
 
         private void btn_Login_Click(object sender, EventArgs e)
         {
-            if(checkUser(txt_takKhoan.Text, txt_matKhau.Text))
-            {
-                TrangChu trangChu = new TrangChu();
-                this.Hide();
-                trangChu.ShowDialog();
-                this.Show();
-            }
-            else
-            {
-                
-            }
+            TrangChu trangChu = new TrangChu();
+            this.Hide();
+            trangChu.ShowDialog();
+            this.Show();
         }
     }
 }

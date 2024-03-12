@@ -15,7 +15,11 @@ public partial class Nhanvien
 
     public string Sdt { get; set; } = null!;
 
-    public virtual ICollection<Hoadon> Hoadons { get; set; } = new List<Hoadon>();
+    public string? Taikhoan { get; set; }
 
-    public virtual ICollection<Taikhoan> Taikhoans { get; set; } = new List<Taikhoan>();
+    public string? Matkhau { get; set; }
+
+    public string? Quyen { get; set; }
+
+    public virtual ICollection<Hoadon> Hoadons { get; set; } = new List<Hoadon>();
 }

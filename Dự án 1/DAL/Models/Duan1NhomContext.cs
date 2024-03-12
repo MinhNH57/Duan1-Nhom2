@@ -33,8 +33,6 @@ public partial class Duan1NhomContext : DbContext
 
     public virtual DbSet<Spct> Spcts { get; set; }
 
-    public virtual DbSet<Taikhoan> Taikhoans { get; set; }
-
     public virtual DbSet<Th> Ths { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -191,11 +189,23 @@ public partial class Duan1NhomContext : DbContext
             entity.Property(e => e.Diachi)
                 .HasMaxLength(100)
                 .HasColumnName("DIACHI");
+            entity.Property(e => e.Matkhau)
+                .HasMaxLength(10)
+                .IsUnicode(false)
+                .HasColumnName("MATKHAU");
             entity.Property(e => e.Ngaysinh).HasColumnName("NGAYSINH");
+            entity.Property(e => e.Quyen)
+                .HasMaxLength(10)
+                .IsUnicode(false)
+                .HasColumnName("QUYEN");
             entity.Property(e => e.Sdt)
                 .HasMaxLength(20)
                 .IsUnicode(false)
                 .HasColumnName("SDT");
+            entity.Property(e => e.Taikhoan)
+                .HasMaxLength(10)
+                .IsUnicode(false)
+                .HasColumnName("TAIKHOAN");
             entity.Property(e => e.Tennv)
                 .HasMaxLength(50)
                 .HasColumnName("TENNV");
@@ -303,35 +313,6 @@ public partial class Duan1NhomContext : DbContext
                 .HasForeignKey(d => d.Math)
                 .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_SPCT_TH");
-        });
-
-        modelBuilder.Entity<Taikhoan>(entity =>
-        {
-            entity.HasKey(e => e.Id).HasName("PK__TAIKHOAN__3214EC27E279748A");
-
-            entity.ToTable("TAIKHOAN");
-
-            entity.Property(e => e.Id)
-                .HasMaxLength(10)
-                .IsUnicode(false)
-                .HasColumnName("ID");
-            entity.Property(e => e.Manv)
-                .HasMaxLength(10)
-                .IsUnicode(false)
-                .HasColumnName("MANV");
-            entity.Property(e => e.Pass)
-                .HasMaxLength(50)
-                .IsUnicode(false)
-                .HasColumnName("PASS");
-            entity.Property(e => e.Username)
-                .HasMaxLength(20)
-                .IsUnicode(false)
-                .HasColumnName("USERNAME");
-
-            entity.HasOne(d => d.ManvNavigation).WithMany(p => p.Taikhoans)
-                .HasForeignKey(d => d.Manv)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK_TAIKHOAN_NHANVIEN");
         });
 
         modelBuilder.Entity<Th>(entity =>

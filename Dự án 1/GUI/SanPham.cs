@@ -9,6 +9,7 @@ using System.Reflection.Metadata;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Dự_án_1.VIEWS
 {
@@ -20,6 +21,7 @@ namespace Dự_án_1.VIEWS
         Brandser thuongHieu = new();
         MauSer mauSac = new();
         SizeSer kichThuoc = new();
+        string pathimg;
         #endregion
 
         public SanPham()
@@ -50,26 +52,29 @@ namespace Dự_án_1.VIEWS
             cb_size.DisplayMember = "Tensize";
             cb_size.ValueMember = "Masize";
         }
-        //public void Loaddata()
-        //{
-        //    var q = from i in sp.getAllSanPhamSer()
-        //            join a in spct.getAllSPCTSer() on i.Masp equals a.Masp
-        //            join ms in mauSac.getAllColorSer() on a.Mamau equals ms.Mamau
-        //            join kt in kichThuoc.getAllSizeSer() on a.Masize equals kt.Masize
-        //            join br in thuongHieu.getAllBrandSer() on a.Math equals br.Math
-        //            select new
-        //            {
-        //                i.Masp,
-        //                i.Tensp,
-        //                a.Tenspct,
-        //                ms.Tenmau,
-        //                kt.Tensize,
-        //                br.Tenth,
-        //                a.Dongia,
-        //                a.Soluong
-        //            };
-        //    dgv_dataSP.DataSource = q.ToList();
-        //}
+        public void Loaddata()
+        {
+            var q = from i in sp.getAllSanPhamSer()
+                    join a in spct.getAllSPCTSer() on i.Masp equals a.Masp
+                    join ms in mauSac.getAllColorSer() on a.Mamau equals ms.Mamau
+                    join kt in kichThuoc.getAllSizeSer() on a.Masize equals kt.Masize
+                    join br in thuongHieu.getAllBrandSer() on a.Math equals br.Math
+                    select new
+                    {
+                        i.Masp,
+                        i.Tensp,
+                        i.Loaisp,
+                        i.Chatlieu,
+                        a.Maspct,
+                        a.Tenspct,
+                        ms.Tenmau,
+                        kt.Tensize,
+                        br.Tenth,
+                        a.Dongia,
+                        a.Soluong
+                    };
+            dgv_dataSP.DataSource = q.ToList();
+        }
 
         private void label6_Click(object sender, EventArgs e)
         {
@@ -94,14 +99,17 @@ namespace Dự_án_1.VIEWS
             var q = from i in spct.getAllSPCTSer()
                     select new
                     {
-                        i.Maspct , i.Tenspct , i.Soluong ,i.Dongia
+                        i.Maspct,
+                        i.Tenspct,
+                        i.Soluong,
+                        i.Dongia
                     };
             dgv_SPCT.DataSource = q.ToList();
         }
 
         private void SanPham_Load(object sender, EventArgs e)
         {
-            //Loaddata();
+            Loaddata();
             loadSP();
             loadSPCT();
             loadcb_Brand();
@@ -114,10 +122,16 @@ namespace Dự_án_1.VIEWS
         {
             try
             {
-                string mess = sp.CreateSpSer(txt_maSP.Text, txt_tenSP.Text, cb_loaiSP.Text, cb_chatLieuSP.Text);
-                //string mess1 = spct.CreateSPCTSer(txt_maSPCT.Text, txt_TenSPCT.Text, cb_thuongHieu.Text, cb_size.Text, cb_mauSac.Text, txt_maSP.Text, decimal.Parse(txt_donGia.Text), int.Parse(txt_soLuong.Text));
-                MessageBox.Show(mess, "Thong bao");
-                loadSP();
+                if (sp.FindbyIDSer(txt_maSP.Text) != null)
+                {
+                    MessageBox.Show("Vui long chon ma san pham khac", "Thong bao");
+                }
+                else
+                {
+                    string mess = sp.CreateSpSer(txt_maSP.Text, txt_tenSP.Text, cb_loaiSP.Text, cb_chatLieuSP.Text);
+                    MessageBox.Show(mess, "Thong bao");
+                    loadSP();
+                }
             }
             catch (Exception ex)
             {
@@ -146,9 +160,94 @@ namespace Dự_án_1.VIEWS
 
         private void btn_ThemSPCT_Click(object sender, EventArgs e)
         {
-            string mess = spct.CreateSPCTSer(txt_maSPCT.Text, txt_TenSPCT.Text, cb_thuongHieu.SelectedValue.ToString(), cb_size.SelectedValue.ToString(), cb_mauSac.SelectedValue.ToString(), txt_maSP.Text, decimal.Parse(txt_donGia.Text), int.Parse(txt_soLuong.Text));
-            MessageBox.Show(mess, "Thong bao");
-            loadSPCT();
+            if (!string.IsNullOrEmpty(pathimg))
+            {
+                try
+                {
+                    byte[] imageBytes = File.ReadAllBytes(pathimg);
+                    string mess = spct.CreateSPCTSer(txt_maSPCT.Text, txt_TenSPCT.Text, cb_thuongHieu.SelectedValue.ToString(), cb_size.SelectedValue.ToString(), cb_mauSac.SelectedValue.ToString(), txt_maSP.Text, decimal.Parse(txt_donGia.Text), int.Parse(txt_soLuong.Text), imageBytes);
+                    MessageBox.Show(mess, "Thong bao");
+                    loadSPCT();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Lỗi khi đọc dữ liệu hình ảnh: " + ex.Message, "Lỗi");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng chọn một hình ảnh trước khi thêm sản phẩm.", "Thông báo");
+            }
+        }
+
+        private void btn_chonAnh_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "Image files (*.jpg, *.jpeg, *.png, *.gif)|*.jpg; *.jpeg; *.png; *.gif";
+            openFileDialog.Title = "Chọn ảnh";
+
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+
+                    Image image = Image.FromFile(openFileDialog.FileName);
+
+
+                    pic_spct.Image = image;
+
+                    pathimg = openFileDialog.FileName;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Không thể tải hình ảnh: " + ex.Message);
+                }
+            }
+        }
+
+        private void dgv_dataSP_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int i = e.RowIndex;
+            txt_maSP.Text = dgv_dataSP.Rows[i].Cells[0].Value.ToString();
+            txt_tenSP.Text = dgv_dataSP.Rows[i].Cells[1].Value.ToString();
+            cb_loaiSP.Text = dgv_dataSP.Rows[i].Cells[2].Value.ToString();
+            cb_chatLieuSP.Text = dgv_dataSP.Rows[i].Cells[3].Value.ToString();
+            txt_maSPCT.Text = dgv_dataSP.Rows[i].Cells[4].Value.ToString();
+            txt_TenSPCT.Text = dgv_dataSP.Rows[i].Cells[5].Value.ToString();
+            cb_mauSac.Text = dgv_dataSP.Rows[i].Cells[6].Value.ToString();
+            cb_size.Text = dgv_dataSP.Rows[i].Cells[7].Value.ToString();
+            cb_thuongHieu.Text = dgv_dataSP.Rows[i].Cells[8].Value.ToString();
+            txt_donGia.Text = dgv_dataSP.Rows[i].Cells[9].Value.ToString();
+            txt_soLuong.Text = dgv_dataSP.Rows[i].Cells[10].Value.ToString();
+
+            var s = spct.FindbyIDSer(txt_maSPCT.Text);
+            object img = s.HinhAnh;
+
+            byte[] imageData = (byte[])img;
+            Image image;
+            using (MemoryStream ms = new MemoryStream(imageData))
+            {
+                image = Image.FromStream(ms);
+            }
+            pic_spct.Image = image;
+        }
+
+        private void btn_suaSPCT_Click(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(pathimg))
+            {
+                try
+                {
+                    byte[] imageBytes = File.ReadAllBytes(pathimg);
+                    string mess = spct.UpdateSPCTSer(txt_maSPCT.Text, txt_TenSPCT.Text, cb_thuongHieu.SelectedValue.ToString(), cb_size.SelectedValue.ToString(), cb_mauSac.SelectedValue.ToString(), txt_maSP.Text, decimal.Parse(txt_donGia.Text), int.Parse(txt_soLuong.Text), imageBytes);
+                    MessageBox.Show(mess, "Thong bao");
+                    loadSPCT();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Lỗi khi đọc dữ liệu hình ảnh: " + ex.Message, "Lỗi");
+                }
+            }
         }
     }
 }

@@ -28,5 +28,23 @@ namespace Dự_án_1.DAL
             }
         }
 
+        public bool UpdateSPCTRes(Spct sanphamCt)
+        {
+            if (sanphamCt != null)
+            {
+                db.Spcts.Update(sanphamCt);
+                return db.SaveChanges() > 0;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public Spct findbyID(string id)
+        {
+            return db.Spcts.Find(id);
+        }
+
     }
 }

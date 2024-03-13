@@ -16,6 +16,4 @@ public partial class Km
     public double Slgiam { get; set; }
 
     public virtual ICollection<Hdct> Hdcts { get; set; } = new List<Hdct>();
-
-    public virtual ICollection<Spct> Spcts { get; set; } = new List<Spct>();
 }

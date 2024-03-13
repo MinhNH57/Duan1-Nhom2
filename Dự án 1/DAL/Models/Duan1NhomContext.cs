@@ -265,10 +265,7 @@ public partial class Duan1NhomContext : DbContext
             entity.Property(e => e.Dongia)
                 .HasColumnType("decimal(18, 0)")
                 .HasColumnName("DONGIA");
-            entity.Property(e => e.Makm)
-                .HasMaxLength(10)
-                .IsUnicode(false)
-                .HasColumnName("MAKM");
+            entity.Property(e => e.HinhAnh).HasColumnType("image");
             entity.Property(e => e.Mamau)
                 .HasMaxLength(10)
                 .IsUnicode(false)
@@ -289,10 +286,6 @@ public partial class Duan1NhomContext : DbContext
             entity.Property(e => e.Tenspct)
                 .HasMaxLength(50)
                 .HasColumnName("TENSPCT");
-
-            entity.HasOne(d => d.MakmNavigation).WithMany(p => p.Spcts)
-                .HasForeignKey(d => d.Makm)
-                .HasConstraintName("FK_SPCT_KM");
 
             entity.HasOne(d => d.MamauNavigation).WithMany(p => p.Spcts)
                 .HasForeignKey(d => d.Mamau)

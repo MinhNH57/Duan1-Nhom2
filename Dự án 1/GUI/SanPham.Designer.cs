@@ -154,6 +154,7 @@
             dgv_dataSP.RowHeadersWidth = 62;
             dgv_dataSP.Size = new Size(1086, 268);
             dgv_dataSP.TabIndex = 0;
+            dgv_dataSP.CellClick += dgv_dataSP_CellClick;
             // 
             // groupBox1
             // 
@@ -290,7 +291,7 @@
             btn_suaSPCT.TabIndex = 10;
             btn_suaSPCT.Text = "Sửa";
             btn_suaSPCT.UseVisualStyleBackColor = true;
-            btn_suaSPCT.Click += btn_them_Click;
+            btn_suaSPCT.Click += btn_suaSPCT_Click;
             // 
             // btn_ThemSPCT
             // 

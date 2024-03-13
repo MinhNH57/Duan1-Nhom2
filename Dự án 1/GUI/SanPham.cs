@@ -122,7 +122,7 @@ namespace Dự_án_1.VIEWS
         {
             try
             {
-                if(sp.FindbyIDSer(txt_maSP.Text) != null)
+                if (sp.FindbyIDSer(txt_maSP.Text) != null)
                 {
                     MessageBox.Show("Vui long chon ma san pham khac", "Thong bao");
                 }
@@ -201,6 +201,51 @@ namespace Dự_án_1.VIEWS
                 catch (Exception ex)
                 {
                     MessageBox.Show("Không thể tải hình ảnh: " + ex.Message);
+                }
+            }
+        }
+
+        private void dgv_dataSP_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int i = e.RowIndex;
+            txt_maSP.Text = dgv_dataSP.Rows[i].Cells[0].Value.ToString();
+            txt_tenSP.Text = dgv_dataSP.Rows[i].Cells[1].Value.ToString();
+            cb_loaiSP.Text = dgv_dataSP.Rows[i].Cells[2].Value.ToString();
+            cb_chatLieuSP.Text = dgv_dataSP.Rows[i].Cells[3].Value.ToString();
+            txt_maSPCT.Text = dgv_dataSP.Rows[i].Cells[4].Value.ToString();
+            txt_TenSPCT.Text = dgv_dataSP.Rows[i].Cells[5].Value.ToString();
+            cb_mauSac.Text = dgv_dataSP.Rows[i].Cells[6].Value.ToString();
+            cb_size.Text = dgv_dataSP.Rows[i].Cells[7].Value.ToString();
+            cb_thuongHieu.Text = dgv_dataSP.Rows[i].Cells[8].Value.ToString();
+            txt_donGia.Text = dgv_dataSP.Rows[i].Cells[9].Value.ToString();
+            txt_soLuong.Text = dgv_dataSP.Rows[i].Cells[10].Value.ToString();
+
+            var s = spct.FindbyIDSer(txt_maSPCT.Text);
+            object img = s.HinhAnh;
+
+            byte[] imageData = (byte[])img;
+            Image image;
+            using (MemoryStream ms = new MemoryStream(imageData))
+            {
+                image = Image.FromStream(ms);
+            }
+            pic_spct.Image = image;
+        }
+
+        private void btn_suaSPCT_Click(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(pathimg))
+            {
+                try
+                {
+                    byte[] imageBytes = File.ReadAllBytes(pathimg);
+                    string mess = spct.UpdateSPCTSer(txt_maSPCT.Text, txt_TenSPCT.Text, cb_thuongHieu.SelectedValue.ToString(), cb_size.SelectedValue.ToString(), cb_mauSac.SelectedValue.ToString(), txt_maSP.Text, decimal.Parse(txt_donGia.Text), int.Parse(txt_soLuong.Text), imageBytes);
+                    MessageBox.Show(mess, "Thong bao");
+                    loadSPCT();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Lỗi khi đọc dữ liệu hình ảnh: " + ex.Message, "Lỗi");
                 }
             }
         }

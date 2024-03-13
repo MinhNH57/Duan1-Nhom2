@@ -21,11 +21,9 @@ public partial class Spct
 
     public int Soluong { get; set; }
 
-    public string? Makm { get; set; }
+    public byte[]? HinhAnh { get; set; }
 
     public virtual ICollection<Hdct> Hdcts { get; set; } = new List<Hdct>();
-
-    public virtual Km? MakmNavigation { get; set; }
 
     public virtual M MamauNavigation { get; set; } = null!;
 

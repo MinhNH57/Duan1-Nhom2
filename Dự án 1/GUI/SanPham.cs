@@ -249,5 +249,15 @@ namespace Dự_án_1.VIEWS
                 }
             }
         }
+
+        private void txt_timKiem_TextChanged(object sender, EventArgs e)
+        {
+            var q = from i in spct.getAllSPCTSer().Where(x => x.Tenspct.Contains(txt_timKiem.Text))
+                    select new
+                    {
+                        i.Maspct , i.Tenspct , i.Soluong 
+                    };
+            dgv_dataSP.DataSource = q.ToList();
+        }
     }
 }

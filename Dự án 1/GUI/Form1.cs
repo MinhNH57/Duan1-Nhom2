@@ -68,6 +68,10 @@ namespace Dự_án_1
             {
                 txt_matKhau.UseSystemPasswordChar = false;
             }
+            else
+            {
+                txt_matKhau.UseSystemPasswordChar=true;
+            }
         }
 
     }

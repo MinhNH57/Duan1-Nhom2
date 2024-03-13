@@ -216,6 +216,7 @@
             txt_timKiem.Name = "txt_timKiem";
             txt_timKiem.Size = new Size(289, 27);
             txt_timKiem.TabIndex = 1;
+            txt_timKiem.TextChanged += txt_timKiem_TextChanged;
             // 
             // groupBox2
             // 

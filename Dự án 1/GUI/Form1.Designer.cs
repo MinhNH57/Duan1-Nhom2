@@ -95,7 +95,7 @@
             // 
             checkBox1.Anchor = AnchorStyles.Top;
             checkBox1.AutoSize = true;
-            checkBox1.Location = new Point(120, 167);
+            checkBox1.Location = new Point(87, 165);
             checkBox1.Margin = new Padding(2);
             checkBox1.Name = "checkBox1";
             checkBox1.Size = new Size(127, 24);
@@ -113,6 +113,7 @@
             txt_matKhau.PlaceholderText = "**********";
             txt_matKhau.Size = new Size(251, 27);
             txt_matKhau.TabIndex = 3;
+            txt_matKhau.TextAlign = HorizontalAlignment.Center;
             txt_matKhau.UseSystemPasswordChar = true;
             // 
             // txt_takKhoan
@@ -125,6 +126,7 @@
             txt_takKhoan.PlaceholderText = "Nhập Tài Khoản";
             txt_takKhoan.Size = new Size(251, 27);
             txt_takKhoan.TabIndex = 2;
+            txt_takKhoan.TextAlign = HorizontalAlignment.Center;
             txt_takKhoan.WordWrap = false;
             // 
             // btn_Login

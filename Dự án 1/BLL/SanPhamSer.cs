@@ -47,5 +47,10 @@ namespace Dự_án_1.BLL
                 return "Sua that bai";
             }
         }
+
+        public Sanpham FindbyIDSer(string id)
+        {
+            return spser.FindbyID(id);
+        }
     }
 }

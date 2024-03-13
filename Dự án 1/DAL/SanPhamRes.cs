@@ -18,21 +18,13 @@ namespace Dự_án_1.DAL
 
         public bool CreateProducts(Sanpham sp)
         {
-            try
+            if (sp != null)
             {
-                if (sp != null)
-                {
-                    db.Sanphams.Add(sp);
-                    return db.SaveChanges() > 0;
-                }
-                else
-                {
-                    return false;
-                }
+                db.Sanphams.Add(sp);
+                return db.SaveChanges() > 0;
             }
-            catch(Exception ex)
+            else
             {
-                MessageBox.Show(ex.Message);
                 return false;
             }
         }
@@ -46,6 +38,11 @@ namespace Dự_án_1.DAL
         {
             db.Sanphams.Remove(sp);
             return db.SaveChanges() > 0;
+        }
+
+        public Sanpham FindbyID(string ma)
+        {
+            return db.Sanphams.Find(ma);
         }
     }
 }

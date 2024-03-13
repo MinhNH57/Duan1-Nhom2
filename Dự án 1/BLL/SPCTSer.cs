@@ -17,11 +17,11 @@ namespace Dự_án_1.BLL
             return SPCTser.getAllSPCTRes();
         }
 
-        public string CreateSPCTSer(string ma , string ten , string math , string masize , string mamau , string masp ,decimal dongia , int soluong)
+        public string CreateSPCTSer(string ma , string ten , string math , string masize , string mamau , string masp ,decimal dongia , int soluong , byte[] hinhAnh)
         {
             Spct newspct = new()
             {
-                Maspct = ma, Tenspct = ten ,Math= math ,Masize=masize,Mamau=mamau,Masp=masp,Dongia=dongia ,Soluong=soluong
+                Maspct = ma, Tenspct = ten ,Math= math ,Masize=masize,Mamau=mamau,Masp=masp,Dongia=dongia ,Soluong=soluong , HinhAnh = hinhAnh
             };
             if(SPCTser.CreateSPCTRes(newspct) )
             {

@@ -46,6 +46,8 @@
             txt_TenSPCT = new TextBox();
             label6 = new Label();
             txt_soLuong = new TextBox();
+            btn_suaSPCT = new Button();
+            btn_ThemSPCT = new Button();
             cb_thuongHieu = new ComboBox();
             txt_donGia = new TextBox();
             txt_maSPCT = new TextBox();
@@ -61,8 +63,7 @@
             dgv_SP = new DataGridView();
             groupBox4 = new GroupBox();
             dgv_SPCT = new DataGridView();
-            btn_ThemSPCT = new Button();
-            btn_suaSPCT = new Button();
+            btn_chonAnh = new Button();
             ((System.ComponentModel.ISupportInitialize)dgv_dataSP).BeginInit();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
@@ -147,11 +148,11 @@
             // 
             dgv_dataSP.Anchor = AnchorStyles.Top;
             dgv_dataSP.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgv_dataSP.Location = new Point(13, 454);
+            dgv_dataSP.Location = new Point(13, 480);
             dgv_dataSP.Margin = new Padding(2);
             dgv_dataSP.Name = "dgv_dataSP";
             dgv_dataSP.RowHeadersWidth = 62;
-            dgv_dataSP.Size = new Size(1086, 294);
+            dgv_dataSP.Size = new Size(1086, 268);
             dgv_dataSP.TabIndex = 0;
             // 
             // groupBox1
@@ -170,7 +171,7 @@
             groupBox1.ForeColor = Color.Red;
             groupBox1.Location = new Point(12, 12);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(469, 189);
+            groupBox1.Size = new Size(469, 197);
             groupBox1.TabIndex = 9;
             groupBox1.TabStop = false;
             groupBox1.Text = "Thông tin sản phẩm";
@@ -209,7 +210,7 @@
             // txt_timKiem
             // 
             txt_timKiem.Anchor = AnchorStyles.Top;
-            txt_timKiem.Location = new Point(419, 414);
+            txt_timKiem.Location = new Point(419, 449);
             txt_timKiem.Margin = new Padding(2);
             txt_timKiem.Name = "txt_timKiem";
             txt_timKiem.Size = new Size(289, 27);
@@ -237,7 +238,7 @@
             groupBox2.ForeColor = Color.Red;
             groupBox2.Location = new Point(487, 12);
             groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(469, 189);
+            groupBox2.Size = new Size(469, 197);
             groupBox2.TabIndex = 9;
             groupBox2.TabStop = false;
             groupBox2.Text = "Sản phẩm chi tiết";
@@ -279,6 +280,28 @@
             txt_soLuong.Name = "txt_soLuong";
             txt_soLuong.Size = new Size(72, 27);
             txt_soLuong.TabIndex = 0;
+            // 
+            // btn_suaSPCT
+            // 
+            btn_suaSPCT.Anchor = AnchorStyles.Top;
+            btn_suaSPCT.Location = new Point(257, 160);
+            btn_suaSPCT.Name = "btn_suaSPCT";
+            btn_suaSPCT.Size = new Size(87, 29);
+            btn_suaSPCT.TabIndex = 10;
+            btn_suaSPCT.Text = "Sửa";
+            btn_suaSPCT.UseVisualStyleBackColor = true;
+            btn_suaSPCT.Click += btn_them_Click;
+            // 
+            // btn_ThemSPCT
+            // 
+            btn_ThemSPCT.Anchor = AnchorStyles.Top;
+            btn_ThemSPCT.Location = new Point(123, 160);
+            btn_ThemSPCT.Name = "btn_ThemSPCT";
+            btn_ThemSPCT.Size = new Size(87, 29);
+            btn_ThemSPCT.TabIndex = 10;
+            btn_ThemSPCT.Text = "Thêm";
+            btn_ThemSPCT.UseVisualStyleBackColor = true;
+            btn_ThemSPCT.Click += btn_ThemSPCT_Click;
             // 
             // cb_thuongHieu
             // 
@@ -383,6 +406,7 @@
             pic_spct.Location = new Point(962, 23);
             pic_spct.Name = "pic_spct";
             pic_spct.Size = new Size(136, 178);
+            pic_spct.SizeMode = PictureBoxSizeMode.StretchImage;
             pic_spct.TabIndex = 11;
             pic_spct.TabStop = false;
             // 
@@ -391,7 +415,7 @@
             groupBox3.Anchor = AnchorStyles.Top;
             groupBox3.Controls.Add(dgv_SP);
             groupBox3.ForeColor = Color.Red;
-            groupBox3.Location = new Point(12, 207);
+            groupBox3.Location = new Point(12, 255);
             groupBox3.Name = "groupBox3";
             groupBox3.Size = new Size(469, 189);
             groupBox3.TabIndex = 9;
@@ -412,7 +436,7 @@
             groupBox4.Anchor = AnchorStyles.Top;
             groupBox4.Controls.Add(dgv_SPCT);
             groupBox4.ForeColor = Color.Red;
-            groupBox4.Location = new Point(487, 207);
+            groupBox4.Location = new Point(488, 255);
             groupBox4.Name = "groupBox4";
             groupBox4.Size = new Size(611, 189);
             groupBox4.TabIndex = 9;
@@ -428,27 +452,16 @@
             dgv_SPCT.Size = new Size(599, 157);
             dgv_SPCT.TabIndex = 0;
             // 
-            // btn_ThemSPCT
+            // btn_chonAnh
             // 
-            btn_ThemSPCT.Anchor = AnchorStyles.Top;
-            btn_ThemSPCT.Location = new Point(123, 160);
-            btn_ThemSPCT.Name = "btn_ThemSPCT";
-            btn_ThemSPCT.Size = new Size(87, 29);
-            btn_ThemSPCT.TabIndex = 10;
-            btn_ThemSPCT.Text = "Thêm";
-            btn_ThemSPCT.UseVisualStyleBackColor = true;
-            btn_ThemSPCT.Click += btn_ThemSPCT_Click;
-            // 
-            // btn_suaSPCT
-            // 
-            btn_suaSPCT.Anchor = AnchorStyles.Top;
-            btn_suaSPCT.Location = new Point(257, 160);
-            btn_suaSPCT.Name = "btn_suaSPCT";
-            btn_suaSPCT.Size = new Size(87, 29);
-            btn_suaSPCT.TabIndex = 10;
-            btn_suaSPCT.Text = "Sửa";
-            btn_suaSPCT.UseVisualStyleBackColor = true;
-            btn_suaSPCT.Click += btn_them_Click;
+            btn_chonAnh.Anchor = AnchorStyles.Top;
+            btn_chonAnh.Location = new Point(995, 220);
+            btn_chonAnh.Name = "btn_chonAnh";
+            btn_chonAnh.Size = new Size(87, 29);
+            btn_chonAnh.TabIndex = 10;
+            btn_chonAnh.Text = "Chọn Ảnh";
+            btn_chonAnh.UseVisualStyleBackColor = true;
+            btn_chonAnh.Click += btn_chonAnh_Click;
             // 
             // SanPham
             // 
@@ -459,6 +472,7 @@
             Controls.Add(txt_timKiem);
             Controls.Add(groupBox2);
             Controls.Add(groupBox4);
+            Controls.Add(btn_chonAnh);
             Controls.Add(groupBox3);
             Controls.Add(groupBox1);
             Controls.Add(dgv_dataSP);
@@ -516,5 +530,6 @@
         private DataGridView dgv_SPCT;
         private Button btn_suaSPCT;
         private Button btn_ThemSPCT;
+        private Button btn_chonAnh;
     }
 }

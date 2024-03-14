@@ -211,7 +211,7 @@
             // txt_timKiem
             // 
             txt_timKiem.Anchor = AnchorStyles.Top;
-            txt_timKiem.Location = new Point(419, 449);
+            txt_timKiem.Location = new Point(380, 449);
             txt_timKiem.Margin = new Padding(2);
             txt_timKiem.Name = "txt_timKiem";
             txt_timKiem.Size = new Size(289, 27);

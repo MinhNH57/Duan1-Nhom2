@@ -113,7 +113,6 @@
             txt_matKhau.PlaceholderText = "**********";
             txt_matKhau.Size = new Size(251, 27);
             txt_matKhau.TabIndex = 3;
-            txt_matKhau.TextAlign = HorizontalAlignment.Center;
             txt_matKhau.UseSystemPasswordChar = true;
             // 
             // txt_takKhoan
@@ -126,7 +125,6 @@
             txt_takKhoan.PlaceholderText = "Nhập Tài Khoản";
             txt_takKhoan.Size = new Size(251, 27);
             txt_takKhoan.TabIndex = 2;
-            txt_takKhoan.TextAlign = HorizontalAlignment.Center;
             txt_takKhoan.WordWrap = false;
             // 
             // btn_Login

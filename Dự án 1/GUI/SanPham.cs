@@ -1,4 +1,5 @@
 ﻿using Dự_án_1.BLL;
+using Microsoft.IdentityModel.Tokens;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -232,32 +233,29 @@ namespace Dự_án_1.VIEWS
             pic_spct.Image = image;
         }
 
-        private void btn_suaSPCT_Click(object sender, EventArgs e)
+        private void txt_timKiem_TextChanged(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(pathimg))
+            if(!txt_timKiem.Text.IsNullOrEmpty())
             {
-                try
-                {
-                    byte[] imageBytes = File.ReadAllBytes(pathimg);
-                    string mess = spct.UpdateSPCTSer(txt_maSPCT.Text, txt_TenSPCT.Text, cb_thuongHieu.SelectedValue.ToString(), cb_size.SelectedValue.ToString(), cb_mauSac.SelectedValue.ToString(), txt_maSP.Text, decimal.Parse(txt_donGia.Text), int.Parse(txt_soLuong.Text), imageBytes);
-                    MessageBox.Show(mess, "Thong bao");
-                    loadSPCT();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Lỗi khi đọc dữ liệu hình ảnh: " + ex.Message, "Lỗi");
-                }
+                var q = from i in spct.getAllSPCTSer().Where(x => x.Tenspct.Contains(txt_timKiem.Text))
+                        select new
+                        {
+                            i.Maspct,
+                            i.Tenspct,
+                            i.Soluong,
+                            i.Dongia
+                        };
+                dgv_dataSP.DataSource = q.ToList();
             }
         }
 
-        private void txt_timKiem_TextChanged(object sender, EventArgs e)
+        private void btn_suaSPCT_Click(object sender, EventArgs e)
         {
-            var q = from i in spct.getAllSPCTSer().Where(x => x.Tenspct.Contains(txt_timKiem.Text))
-                    select new
-                    {
-                        i.Maspct , i.Tenspct , i.Soluong 
-                    };
-            dgv_dataSP.DataSource = q.ToList();
+            byte[] byteHinhanh = spct.getAllSPCTSer().SelectMany(x => x.HinhAnh).ToArray();
+            string mess = spct.UpdateSPCTSer(txt_maSPCT.Text, txt_TenSPCT.Text, cb_thuongHieu.SelectedValue.ToString(), cb_size.SelectedValue.ToString(), cb_mauSac.SelectedValue.ToString(), txt_maSP.Text, decimal.Parse(txt_donGia.Text), int.Parse(txt_soLuong.Text), byteHinhanh);
+            MessageBox.Show(mess, "Thong bao");
+            loadSPCT();
+            Loaddata();
         }
     }
 }

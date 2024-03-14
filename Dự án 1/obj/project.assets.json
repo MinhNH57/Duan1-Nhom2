@@ -4013,25 +4013,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Dell\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Users\\dattb\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Dell\\Desktop\\Dự Án 1\\Duan1-Nhom2\\Dự án 1\\Dự án 1.csproj",
+      "projectUniqueName": "C:\\Users\\dattb\\OneDrive\\Tài liệu\\GitHub\\Duan1-Nhom2\\Dự án 1\\Dự án 1.csproj",
       "projectName": "Dự án 1",
-      "projectPath": "C:\\Users\\Dell\\Desktop\\Dự Án 1\\Duan1-Nhom2\\Dự án 1\\Dự án 1.csproj",
-      "packagesPath": "C:\\Users\\Dell\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Dell\\Desktop\\Dự Án 1\\Duan1-Nhom2\\Dự án 1\\obj\\",
+      "projectPath": "C:\\Users\\dattb\\OneDrive\\Tài liệu\\GitHub\\Duan1-Nhom2\\Dự án 1\\Dự án 1.csproj",
+      "packagesPath": "C:\\Users\\dattb\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\dattb\\OneDrive\\Tài liệu\\GitHub\\Duan1-Nhom2\\Dự án 1\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\Dell\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\dattb\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -4040,6 +4038,7 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {

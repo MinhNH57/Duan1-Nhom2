@@ -55,5 +55,10 @@ namespace Dự_án_1.VIEWS
             }
             label1.Text = "Thời Trang RYo";
         }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

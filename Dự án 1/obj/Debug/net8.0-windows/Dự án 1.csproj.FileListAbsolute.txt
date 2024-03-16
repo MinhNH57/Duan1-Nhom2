@@ -388,3 +388,9 @@ C:\Users\dattb\OneDrive\Tài liệu\GitHub\Duan1-Nhom2\Dự án 1\obj\Debug\ne
 C:\Users\dattb\OneDrive\Tài liệu\GitHub\Duan1-Nhom2\Dự án 1\obj\Debug\net8.0-windows\Dự án 1.pdb
 C:\Users\dattb\OneDrive\Tài liệu\GitHub\Duan1-Nhom2\Dự án 1\obj\Debug\net8.0-windows\Dự án 1.genruntimeconfig.cache
 C:\Users\dattb\OneDrive\Tài liệu\GitHub\Duan1-Nhom2\Dự án 1\obj\Debug\net8.0-windows\ref\Dự án 1.dll
+C:\Users\dattb\OneDrive\Tài liệu\GitHub\Duan1-Nhom2\Dự án 1\obj\Debug\net8.0-windows\Dự_án_1.GUI.BanHang.resources
+C:\Users\dattb\OneDrive\Tài liệu\GitHub\Duan1-Nhom2\Dự án 1\obj\Debug\net8.0-windows\Dự_án_1.GUI.hoadon.resources
+C:\Users\dattb\OneDrive\Tài liệu\GitHub\Duan1-Nhom2\Dự án 1\obj\Debug\net8.0-windows\Dự_án_1.GUI.khachhang.resources
+C:\Users\dattb\OneDrive\Tài liệu\GitHub\Duan1-Nhom2\Dự án 1\obj\Debug\net8.0-windows\Dự_án_1.GUI.magg.resources
+C:\Users\dattb\OneDrive\Tài liệu\GitHub\Duan1-Nhom2\Dự án 1\obj\Debug\net8.0-windows\Dự_án_1.GUI.nhanvien.resources
+C:\Users\dattb\OneDrive\Tài liệu\GitHub\Duan1-Nhom2\Dự án 1\obj\Debug\net8.0-windows\Dự_án_1.GUI.thongke.resources
